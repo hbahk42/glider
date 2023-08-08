@@ -1,6 +1,5 @@
 import { Component, Show, onCleanup, onMount } from "solid-js";
 import MainLayout from "../components/layouts/Main";
-import { useAuthState } from "../context/auth";
 import Messenger from "../components/utils/Messenger";
 import useGlides from "../hooks/useGlides";
 import PaginatedGlides from "../components/glides/PaginatedGlides";
@@ -8,7 +7,14 @@ import { Portal } from "solid-js/web";
 import Button from "../components/utils/Button";
 
 const HomeScreen: Component = () => {
-  const { store, addGlide, page, loadGlides, subscribeToGlides, unsubscribeFromGlides, displayFreshGlides } = useGlides();
+  const {
+    store,
+    addGlide,
+    page,
+    loadGlides,
+    subscribeToGlides,
+    unsubscribeFromGlides, displayFreshGlides
+  } = useGlides();
 
   onMount(() => {
     subscribeToGlides();
